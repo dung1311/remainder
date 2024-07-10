@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 let getHomePage = (req, res) => {
-    return res.send("Xin chào các bạn, đây là web dành cho em người yêu của mình: Nguyễn Khánh Linh");
+    return res.send("Xin chào các bạn, đây là web dành cho em người yêu của mình:Phạm Nguyễn Khánh Linh");
 }
 
 let getWebhook = (req, res) => {
