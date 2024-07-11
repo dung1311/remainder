@@ -63,7 +63,7 @@ let postWebhook = (req, res) => {
 function handleMessage(sender_psid, received_message) {
 
     let response;
-
+    let sender_psid = 8047270265389746;
     // Check if the message contains text
     if (received_message.text) {
 
