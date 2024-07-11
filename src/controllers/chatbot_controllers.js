@@ -32,7 +32,7 @@ let postWebhook = (req, res) => {
     let body = req.body;
 
     console.log(`\u{1F7EA} Received webhook:`);
-    // console.dir(body);
+    console.dir(body);
     // Send a 200 OK response if this is a page webhook
 
     if (body.object === "page") {
@@ -92,7 +92,7 @@ function callSendAPI(sender_psid, response) {
       },
       "messaging_type": "RESPONSE",
       "message": {
-        "text:": "xin chao may, tu toi den gio chao bo hoi nhieu roi day"
+        "text:": response
       }
     }
   
