@@ -31,8 +31,7 @@ let postWebhook = (req, res) => {
     let body = req.body;
 
     console.log(`\u{1F7EA} Received webhook:`);
-    // console.dir(body, { depth: null });
-    // console.log("body dang la: " + body);
+    console.dir(body);
     // Send a 200 OK response if this is a page webhook
 
     if (body.object === "page") {
