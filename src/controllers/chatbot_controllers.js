@@ -40,18 +40,51 @@ let postWebhook = (req, res) => {
             let webhook_event = entry.messaging[0];
             console.log(webhook_event);
 
-            let sender_psid = webhook_event.sender_id;
+            let sender_psid = webhook_event.sender.id;
             console.log('Sender psid: ' + sender_psid);
-        })
+
+            if (webhook_event.message) {
+                handleMessage(sender_psid, webhook_event.message);
+            } else if (webhook_event.postback) {
+                handlePostback(sender_psid, webhook_event.postback);
+            }
+        });
 
         // Returns a '200 OK' response to all requests
         res.status(200).send("EVENT_RECEIVED");
-    // Determine which webhooks were triggered and get sender PSIDs and locale, message content and more.
-  } else {
-    // Return a '404 Not Found' if event is not from a page subscription
-    res.sendStatus(404);
-}
+        // Determine which webhooks were triggered and get sender PSIDs and locale, message content and more.
+    } else {
+        // Return a '404 Not Found' if event is not from a page subscription
+        res.sendStatus(404);
+    }
 };
+
+function handleMessage(sender_psid, received_message) {
+
+    let response;
+
+    // Check if the message contains text
+    if (received_message.text) {
+
+        // Create the payload for a basic text message
+        response = {
+            "text": `You sent the message: "${received_message.text}". Now send me an image!`
+        }
+    }
+
+    // Sends the response message
+    callSendAPI(sender_psid, response);
+}
+
+function callSendAPI(sender_psid, response) {
+    // Construct the message body
+    let request_body = {
+        "recipient": {
+            "id": sender_psid
+        },
+        "message": response
+    }
+}
 
 module.exports = {
     getHomePage: getHomePage, // key : value
