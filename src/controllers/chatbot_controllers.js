@@ -90,6 +90,7 @@ function callSendAPI(sender_psid, response) {
       "recipient": {
         "id": sender_psid
       },
+      "messaging_type": "RESPONSE",
       "message": response
     }
   
