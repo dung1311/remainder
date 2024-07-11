@@ -6,12 +6,14 @@ require('dotenv').config();
 
 let app = express();
 
-// config viewEngine
-viewEngine(app);
-initWebRouter(app);
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// config viewEngine
+viewEngine(app);
+initWebRouter(app);
 
 let port = process.env.PORT || 8080;
 app.listen(port, () => {

@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 let getHomePage = (req, res) => {
-    return res.send("Xin chào các bạn, đây là web dành cho em người yêu của mình:Phạm Nguyễn Khánh Linh");
+    return res.send("Xin chào các bạn, đây là web dành cho em người yêu của mình: Phạm Nguyễn Khánh Linh");
 }
 
 let getWebhook = (req, res) => {
@@ -31,7 +31,8 @@ let postWebhook = (req, res) => {
     let body = req.body;
 
     console.log(`\u{1F7EA} Received webhook:`);
-    console.dir(body, { depth: null });
+    // console.dir(body, { depth: null });
+    // console.log("body dang la: " + body);
     // Send a 200 OK response if this is a page webhook
 
     if (body.object === "page") {
