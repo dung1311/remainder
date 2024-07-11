@@ -91,7 +91,9 @@ function callSendAPI(sender_psid, response) {
         "id": sender_psid
       },
       "messaging_type": "RESPONSE",
-      "message": response
+      "message": {
+        "text:": "xin chao may, tu toi den gio chao bo hoi nhieu roi day"
+      }
     }
   
     // Send the HTTP request to the Messenger Platform
